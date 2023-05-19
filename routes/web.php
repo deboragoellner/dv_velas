@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,14 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::resource('usuario', UsuarioController::class);
     Route::post('usuario/search', [UsuarioController::class, 'search']);
+    Route::resource('cliente', ClienteController::class);
+    Route::post('cliente/search', [ClienteController::class, 'search']);
+    Route::resource('fornecedor', FornecedorController::class);
+    Route::post('fornecedor/search', [FornecedorController::class, 'search']);
+    Route::resource('estoque', EstoqueController::class);
+    Route::post('estoque/search', [EstoqueController::class, 'search']);
+    Route::resource('leitura', LeituraController::class);
+    Route::post('leitura/search', [LeituraController::class, 'search']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name(
         'profile.edit'
     );
