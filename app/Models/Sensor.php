@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SensorDeboraVitoria extends Model
+class Sensor extends Model
 {
     use HasFactory;
-    protected $table = "sensordeboravitoria";
+    protected $table = "sensor";
 
     protected $fillable = [
         'nome', 'contador'

@@ -35,8 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::post('fornecedor/search', [FornecedorController::class, 'search']);
     Route::resource('estoque', EstoqueController::class);
     Route::post('estoque/search', [EstoqueController::class, 'search']);
-    Route::resource('leitura', LeituraController::class);
-    Route::post('leitura/search', [LeituraController::class, 'search']);
+    Route::resource('leituradeboravitoria', LeituraDeboraVitoriaController::class);
+    Route::post('leituradeboravitoria/search', [LeituraDeboraVitoriaController::class, 'search']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name(
         'profile.edit'
     );

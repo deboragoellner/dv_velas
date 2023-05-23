@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-
-        Schema::create('macdeboravitoria', function (Blueprint $table) {
+        Schema::create('sensor', function (Blueprint $table) {
             $table->id();
             $table->string('nome',100);
-            $table->integer('contador');
+            $table->bigInteger('contador');
             $table->timestamps();
         });
     }

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('data_leitura');
             $table->string('hora_leitura',20);
             $table->float('valor_sensor');
-            $table->foreignId('sensordeboravitoria_id')->nullable()->constrained('sensordeboravitoria')->default(null);
-            $table->foreignId('macdeboravitoria_id')->nullable()->constrained('macdeboravitoria')->default(null);
+            $table->foreignId('sensor_id')->nullable()->constrained('sensor')->default(null);
+            $table->foreignId('mac_id')->nullable()->constrained('mac')->default(null);
             $table->timestamps();
         });
 
