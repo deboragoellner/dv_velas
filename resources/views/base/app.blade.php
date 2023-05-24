@@ -32,12 +32,30 @@
     <!-- FOOTER WELCOME -->
     <footer>
         <style>
-            footer {
+            html, body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+            }
+            #wrapper{
+                min-height: 100%;
+                position: relative;
+            }
+            div.body-content{
+                /** Altura do rodapé tem que ser igual a isso aqui e vice-versa **/
+                padding-bottom: 100px;
+            }
+            footer{
                 text-align: center;
                 padding: 3px;
                 font-family: Aboreto;
                 background-color: Tan;
                 color: white;
+                width: 100%;
+                height: 100px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
             }
         </style>
         <p><strong>Autoras: Débora Goellner e Vitória Welter</strong><br>

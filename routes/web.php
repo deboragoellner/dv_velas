@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\LeituraDeboraVitoriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('base.dashboard');
 })
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

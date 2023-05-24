@@ -1,42 +1,19 @@
-<?php
-include "../controller/ClienteController.php";
-
-    $cliente = new ClienteController();
-    $load = $cliente->carregar();
-
-    if(!empty($_GET['id'])){
-        $cliente->deletar($_GET['id']);
-        header("location: ClienteList.php");
-    }
-    if(!empty($_POST)){
-        $load = $cliente->pesquisar($_POST);
-    }
-    else{
-        $load = $cliente->carregar();
-    }
-?>
-
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>DV Velas</title>
-        <link rel="stylesheet" type="text/css" href="../estilo.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
+@extends('base.app')
+@section('conteudo')
+@section('tituloPagina', 'Listagem de Cliente')
     <body>
         <div class="valores">
             <style>
                 .valores {
-                border: 1px solid gray;
-                padding: 8px;
+                    border: 1px solid gray;
+                    padding: 8px;
                 }
-
                 h1 {
-                text-align: center;
-                text-transform: uppercase;
-                color: tan;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: tan;
+                    font-size: 50px;
+                    font-family: Aboreto;
                 }
             </style>
             <h1>Clientes</h1>
@@ -60,7 +37,7 @@ include "../controller/ClienteController.php";
         </div>
 
         <div class="cadastra">
-            <button class="button button1"><a href="ClienteForm.php">Cadastrar um novo cliente</a></button>
+            <button class="button button1"><a href="{{ url('/cliente') }}">Cadastrar um novo cliente</a></button>
             <div class="tabela">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -75,7 +52,7 @@ include "../controller/ClienteController.php";
                     </thead>
 
                     <?php
-                    foreach($load as $item){
+                    foreach($clientes as $item){
                     echo "<tr>
                     <td>$item->id</td>
                     <td>$item->nome</td>
@@ -93,4 +70,4 @@ include "../controller/ClienteController.php";
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     </body>
-</html>
+@endsection
