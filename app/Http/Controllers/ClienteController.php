@@ -15,8 +15,14 @@ class ClienteController extends Controller
         return view('ClienteList')->with(['clientes' => $clientes]);
     }
 
+    function create()
+    {
+        return view('ClienteForm');
+    }
+
     function store(Request $request)
     {
+      //  dd($request);
         $request->validate(
             [
                 'nome' => 'required | max: 120',

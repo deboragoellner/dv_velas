@@ -15,6 +15,11 @@ class FornecedorController extends Controller
         return view('FornecedorList')->with(['fornecedores' => $fornecedores]);
     }
 
+    function create()
+    {
+        return view('FornecedorForm');
+    }
+
     function store(Request $request)
     {
         $request->validate(

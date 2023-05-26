@@ -29,19 +29,33 @@
         </style>
         <br><br>
         <div class="row">
+            <style>
+                button a:link, button a:visited{
+                    text-decoration: none; /* retira sublinhado*/
+                    color: peru;
+                    font-weight: bold;
+                }
+                button a:hover{
+                    color: white;
+                }
+            </style>
             <div class="col">
                 Cliente
                 <h6>Para acessar a listagem de clientes:</h6>
                 <button type="button" class="btn btn-outline-secondary"><a href="{{ url('/cliente') }}">Clique aqui!</a></button>
             </div>
             <div class="col">
-            Estoque
+                Estoque
+                <h6>Para acessar a listagem de estoque:</h6>
+                <button type="button" class="btn btn-outline-secondary"><a href="{{ url('/estoque') }}">Clique aqui!</a></button>
             </div>
             <div class="col">
-            Fornecedor
+                Fornecedor
+                <h6>Para acessar a listagem de fornecedores:</h6>
+                <button type="button" class="btn btn-outline-secondary"><a href="{{ url('/fornecedor') }}">Clique aqui!</a></button>
             </div>
             <div class="col">
-            Tabela leitura
+                Tabela leitura
             </div>
         </div>
     </div>

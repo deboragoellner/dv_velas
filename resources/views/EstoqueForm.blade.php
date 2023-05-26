@@ -33,10 +33,10 @@
     <label>Pavio</label><br>
     <input type="text" name="pavio" class="form-control"  value="<?php echo !empty($data->pavio) ? $data->pavio: ""?>"/>
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <br><br>
         <div class="btn-group-mr-2" role="group" aria-label="First group">
         <button type="submit" class="btn btn-outline-success">Salvar</button>
-        <button type="button" class="btn btn-outline-info"><a href="EstoqueList.php">Listar</a></button>
-        <button type="button" class="btn btn-outline-danger"><a href="../index.php">Menu</a></button>
+        <button type="button" class="btn btn-outline-info"><a href="{{ url('base.dashboard') }}">Voltar</a></button>
         </div>
     </div>
     </form>

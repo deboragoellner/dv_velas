@@ -15,6 +15,11 @@ class EstoqueController extends Controller
         return view('EstoqueList')->with(['estoque' => $estoque]);
     }
 
+    function create()
+    {
+        return view('EstoqueForm');
+    }
+
     function store(Request $request)
     {
         $request->validate(

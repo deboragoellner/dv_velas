@@ -5,14 +5,15 @@
         <div class="valores">
             <style>
                 .valores {
-                border: 1px solid gray;
-                padding: 8px;
+                    border: 1px solid gray;
+                    padding: 8px;
                 }
-
                 h1 {
-                text-align: center;
-                text-transform: uppercase;
-                color: tan;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: tan;
+                    font-size: 50px;
+                    font-family: Aboreto;
                 }
             </style>
             <h1>Fornecedores</h1>
@@ -34,6 +35,31 @@
                 </div>
             </form>
         </div>
+
+        <div class="cadastra">
+            <style>
+                .cadastra {
+                    margin: 0;
+                }
+                .button {
+                    border: 1px solid gray;
+                    padding: 8px;
+                    font-family: Aboreto;
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 18px;
+                }
+                button a:link, button a:visited{
+                    text-decoration: none; /* retira sublinhado*/
+                    font-weight: bold; /* negrito*/
+                    color: black;
+                }
+                button a:hover{
+                    color: tan;
+                }
+            </style>
+        </div>
+
         <div class="cadastra">
             <button class="button button1"><a href="FornecedorForm.php">Cadastrar um novo fornecedor</a></button>
             <div class="tabela">
