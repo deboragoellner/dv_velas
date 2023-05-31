@@ -65,7 +65,7 @@
             <button class="button button1"><a href="{{ url('/cliente/create') }}">Cadastrar um novo cliente</a></button>
             <br><br>
             <div class="tabela">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover" style="font-family: Aboreto;">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>

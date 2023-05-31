@@ -5,8 +5,8 @@
     <div class="valores">
         <style>
             .valores {
-                border: 1px solid gray;
-                padding: 8px;
+                    border: 1px solid gray;
+                    padding: 8px;
             }
             h1 {
                 text-align: center;
@@ -61,7 +61,7 @@
 
     <div class="cadastra">
         <br><br>
-        <button class="button button1"><a href="{{ url('/fornecedor/create') }}">Cadastrar um novo item do estoque</a></button>
+        <button class="button button1"><a href="{{ url('/estoque/create') }}">Cadastrar um novo item do estoque</a></button>
         <br><br>
         <div class="tabela">
             <table class="table table-bordered table-hover">
@@ -75,17 +75,21 @@
                 </thead>
 
                 @foreach($estoque as $item)
+                @php
+                    $nome_imagem = !empty($usuario->imagem) ? $usuario->imagem : 'sem_imagem.jpg';
+                @endphp
                 <tr>
                     <td scope='row'>{{ $item->id}}</td>
                     <td>{{$item->id}}</td>
                     <td>{{$item->essencia}}</td>
                     <td>{{$item->cera}}</td>
                     <td>{{$item->pavio}}</td>
-                    <td><a href="{{ action('App\Http\Controllers\FornecedorController@edit', $item->id) }}"><i
+                    <td><img src="/storage/{{ $nome_imagem }}" width="100px" class="img-thumbnail" /> </td>
+                    <td><a href="{{ action('App\Http\Controllers\EstoqueController@edit', $item->id) }}"><i
                         class='fa-solid fa-pencil' style='color:blue;'></i></a></td>
                     <td>
                     <form method="POST"
-                        action="{{ action('App\Http\Controllers\FornecedorController@destroy', $item->id) }}">
+                        action="{{ action('App\Http\Controllers\EstoqueController@destroy', $item->id) }}">
                         <input type="hidden" name="_method" value="DELETE">
                         @csrf
                         <button type="submit" onclick='return confirm("Deseja Excluir?")' style='all: unset;'><i

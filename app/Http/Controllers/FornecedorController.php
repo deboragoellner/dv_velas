@@ -24,24 +24,24 @@ class FornecedorController extends Controller
     {
         $request->validate(
             [
-                'nome' => 'required | max: 120',
-                'email' => ' nullable | email | max: 100',
-                'cpf' => 'required | max: 20',
+                'empresa' => 'required | max: 120',
+                'telefone' => ' nullable | max: 100',
+                'mercadoria' => 'required | max: 20',
             ],
             [
-                'nome.required' => 'O nome é obrigatório',
-                'nome.max' => 'Só é permitido 120 caracteres',
-                'cpf.required' => 'O cpf é obrigatório',
-                'cpf.max' => 'Só é permitido 20 caracteres',
-                'email.max' => 'Só é permitido 100 caracteres',
+                'empresa.required' => 'O empresa é obrigatório',
+                'empresa.max' => 'Só é permitido 120 caracteres',
+                'telefone.required' => 'O telefone é obrigatório',
+                'telefone.max' => 'Só é permitido 20 caracteres',
+                'mercadoria.max' => 'Só é permitido 100 caracteres',
             ]
         );
 
         //dd( $request->nome);
         Fornecedor::create([
-            'nome' => $request->nome,
-            'cpf' => $request->cpf,
-            'email' => $request->email,
+            'empresa' => $request->empresa,
+            'telefone' => $request->telefone,
+            'mercadoria' => $request->mercadoria,
         ]);
 
         return \redirect()->action(
@@ -76,25 +76,25 @@ class FornecedorController extends Controller
         //dd( $request->nome);
         $request->validate(
             [
-                'nome' => 'required | max: 120',
-                'email' => ' nullable | email | max: 100',
-                'cpf' => 'required | max: 20',
+                'empresa' => 'required | max: 120',
+                'telefone' => ' nullable | max: 100',
+                'mercadoria' => 'required | max: 20',
             ],
             [
-                'nome.required' => 'O nome é obrigatório',
-                'nome.max' => 'Só é permitido 120 caracteres',
-                'cpf.required' => 'O cpf é obrigatório',
-                'cpf.max' => 'Só é permitido 20 caracteres',
-                'email.max' => 'Só é permitido 100 caracteres',
+                'empresa.required' => 'O empresa é obrigatório',
+                'empresa.max' => 'Só é permitido 120 caracteres',
+                'telefone.required' => 'O telefone é obrigatório',
+                'telefone.max' => 'Só é permitido 20 caracteres',
+                'mercadoria.max' => 'Só é permitido 100 caracteres',
             ]
         );
 
         Fornecedor::updateOrCreate(
             ['id' => $request->id],
             [
-                'nome' => $request->nome,
-                'cpf' => $request->cpf,
-                'email' => $request->email,
+                'empresa' => $request->empresa,
+                'telefone' => $request->telefone,
+                'mercadoria' => $request->mercadoria,
             ]
         );
 

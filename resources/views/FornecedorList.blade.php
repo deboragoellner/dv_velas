@@ -61,9 +61,11 @@
         </div>
 
         <div class="cadastra">
-            <button class="button button1"><a href="FornecedorForm.php">Cadastrar um novo fornecedor</a></button>
+            <br><br>
+            <button class="button button1"><a href="{{ url('/fornecedor/create') }}">Cadastrar um novo fornecedor</a></button>
+            <br><br>
             <div class="tabela">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover" style="font-family: Aboreto;">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -73,20 +75,27 @@
                         </tr>
                     </thead>
 
-                    <?php
-                    foreach($fornecedores as $item){
-                    echo "<tr>
-                    <td>$item->id</td>
-                    <td>$item->empresa</td>
-                    <td>$item->telefone</td>
-                    <td>$item->mercadoria</td>
-                    <td><a href='./FornecedorForm.php?id=$item->id'><i class='fa-solid fa-pencil' style='color:blue;'></i></a></td>
-                    <td><a href='./FornecedorList.php?id=$item->id'
-                        onclick='return confirm(\"Deseja excluir?\")'
-                        ><i class='fa-solid fa-trash-can' style='color: #6d1818;'></i></i></a></td>
-                        </tr>";
-                    }
-                    ?>
+
+                    @foreach($fornecedores as $item)
+                        <tr>
+                            <td scope='row'>{{ $item->id}}</td>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->empresa}}</td>
+                            <td>{{$item->telefone}}</td>
+                            <td>{{$item->mercadoria}}</td>
+                            <td><a href="{{ action('App\Http\Controllers\FornecedorController@edit', $item->id) }}"><i
+                                class='fa-solid fa-pencil' style='color:blue;'></i></a></td>
+                            <td>
+                            <form method="POST"
+                                action="{{ action('App\Http\Controllers\FornecedorController@destroy', $item->id) }}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                @csrf
+                                <button type="submit" onclick='return confirm("Deseja Excluir?")' style='all: unset;'><i
+                                        class='fa-solid fa-trash-can' style='color: #6d1818;'></i>
+                                </button>
+                            </form>
+                        </tr>
+                    @endforeach
                 </table>
             </div>
         </div>
