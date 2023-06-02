@@ -15,7 +15,7 @@ class LeituraDeboraVitoria extends Model
     ];
 
     public function sensor(){
-        return $this->belongsTo(Sensor::class,'sensor_id','id');
+        return $this->belongsTo(Sensor::class,'sensor_id','nome');
     }
 
     public function mac(){

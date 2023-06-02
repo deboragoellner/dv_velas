@@ -40,7 +40,7 @@
         }
     </style>
     <style> label{font-family: Aboreto;}</style>
-    <form action="{{$route}}" method= "POST">
+    <form action="{{$route}}" method= "POST" enctype="multipart/form-data">
         @csrf
         @if (!empty($leituradeboravitoria->id))
             @method('PUT')
@@ -48,25 +48,28 @@
         <input type="hidden" name="id"
         value="@if (!empty(old('id'))) {{ old('id') }} @elseif(!empty($leituradeboravitoria->id)) {{ $leituradeboravitoria->id }} @else {{ '' }} @endif" /><br>
         <label class="form-label">Data Leitura</label>
-        <input type="text" class="form-control" name="data_leitura"value="@if (!empty(old('dataleitura'))) {{ old('dataleitura') }} @elseif(!empty($leituradeboravitoria->dataleitura)) {{ $leituradeboravitoria->dataleitura }} @else {{ '' }} @endif" /><br>
+        <input type="text" class="form-control" name="data_leitura"value="@if (!empty(old('data_leitura'))) {{ old('data_leitura') }} @elseif(!empty($leituradeboravitoria->data_leitura)) {{ $leituradeboravitoria->data_leitura }} @else {{ '' }} @endif" /><br>
         <label class="form-label">Hora Leitura</label>
-        <input type="text" class="form-control" name="hora_leitura"value="@if (!empty(old('horaleitura'))) {{ old('horaleitura') }} @elseif(!empty($leituradeboravitoria->horaleitura)) {{ $leituradeboravitoria->horaleitura }} @else {{ '' }} @endif" /><br>
+        <input type="text" class="form-control" name="hora_leitura"value="@if (!empty(old('hora_leitura'))) {{ old('hora_leitura') }} @elseif(!empty($leituradeboravitoria->hora_leitura)) {{ $leituradeboravitoria->hora_leitura }} @else {{ '' }} @endif" /><br>
         <label class="form-label">Valor sensor</label>
-        <input type="text" class="form-control" name="valor_sensor"value="@if (!empty(old('valor_sensor'))) {{ old('valor_sensor') }} @elseif(!empty($leituradeboravitoria->valor_sensor)) {{ $leituradeboravitoria->valor_sensor }} @else {{ '' }} @endif" /><br>
+        <input type="text" class="form-control" name="valor_sensor"value="@if (!empty(old('valor_sensor'))) {{ old('valor_sensor') }} @elseif(!empty($leituradeboravitoria->valor_sensor)) {{ $leituradeboravitoria->valor_sensor }} @else {{ '' }} @endif" />
         <div class="col-3">
             <label class="form-label">Sensor</label><br>
-            <input name="sensor_id">
-            @foreach ($sensor as $item)
-                    <option value="{{ $item->id }}">{{ $item->nome }}</option>
-            @endforeach
+            <select name="sensor" class="form-select">
+                @foreach ($sensor as $item)
+                        <option value="{{ $item->id }}">{{ $item->nome }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="col-3">
             <label class="form-label">Mac</label><br>
-            <input name="mac_id">
-            @foreach ($mac as $item)
-                <option value="{{ $item->id }}">{{ $item->nome }}</option>
-            @endforeach
+            <select name="mac" class="form-select">
+                @foreach ($mac as $item)
+                    <option value="{{ $item->id }}">{{ $item->nome }}</option>
+                @endforeach
+            </select>
         </div>
+        <br>
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group-mr-2" role="group" aria-label="First group">
                 <button type="submit" class="btn btn-outline-success">Salvar</button>

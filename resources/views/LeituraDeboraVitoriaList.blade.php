@@ -82,13 +82,11 @@
             @foreach($leituradeboravitoria as $item)
                 <tr>
                     <td scope='row'>{{ $item->id}}</td>
-                    <td>{{$item->dataleitura}}</td>
-                    <td>{{$item->horaleitura}}</td>
+                    <td>{{$item->data_leitura}}</td>
+                    <td>{{$item->hora_leitura}}</td>
                     <td>{{$item->valor_sensor}}</td>
-                    <td>{{$item->sensor->nome}}</td>
-                    <td>{{$item->sensor->contador}}</td>
-                    <td>{{$item->mac->nome}}</td>
-                    <td>{{$item->mac->contador}}</td>
+                    <td>{{$item->sensor_id}}</td>
+                    <td>{{$item->mac_id}}</td>
                     <td><a href="{{ action('App\Http\Controllers\LeituraDeboraVitoriaController@edit', $item->id) }}"><i
                         class='fa-solid fa-pencil' style='color:blue;'></i></a></td>
                     <td>
