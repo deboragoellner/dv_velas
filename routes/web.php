@@ -6,6 +6,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\LeituraDeboraVitoriaController;
+use App\Http\Controllers\MacController;
+use App\Http\Controllers\SensorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,15 +33,25 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('usuario', UsuarioController::class);
-    Route::post('usuario/search', [UsuarioController::class, 'search']);
+    Route::post('usuario/search', [UsuarioController::class, 'search'])->name(
+        'usuario.search'
+    );
     Route::resource('cliente', ClienteController::class);
-    Route::post('cliente/search', [ClienteController::class, 'search']);
+    Route::post('cliente/search', [ClienteController::class, 'search'])->name(
+        'cliente.search'
+    );
     Route::resource('fornecedor', FornecedorController::class);
-    Route::post('fornecedor/search', [FornecedorController::class, 'search']);
+    Route::post('fornecedor/search', [FornecedorController::class, 'search'])->name(
+        'fornecedor.search'
+    );
     Route::resource('estoque', EstoqueController::class);
-    Route::post('estoque/search', [EstoqueController::class, 'search']);
+    Route::post('estoque/search', [EstoqueController::class, 'search'])->name(
+        'estoque.search'
+    );
     Route::resource('leituradeboravitoria', LeituraDeboraVitoriaController::class);
-    Route::post('leituradeboravitoria/search', [LeituraDeboraVitoriaController::class, 'search']);
+    Route::post('leituradeboravitoria/search', [LeituraDeboraVitoriaController::class, 'search'])->name(
+        'leituradeboravitoria.search'
+    );
     Route::get('/profile', [ProfileController::class, 'edit'])->name(
         'profile.edit'
     );

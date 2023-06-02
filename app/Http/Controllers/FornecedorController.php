@@ -117,9 +117,11 @@ class FornecedorController extends Controller
 
     function search(Request $request)
     {
-        if ($request->campo == 'nome') {
+        $campo = $request->campo;
+
+        if ($campo) {
             $fornecedores = Fornecedor::where(
-                'nome',
+                $campo,
                 'like',
                 '%' . $request->valor . '%'
             )->get();

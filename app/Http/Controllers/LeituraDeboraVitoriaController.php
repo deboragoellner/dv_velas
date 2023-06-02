@@ -20,10 +20,12 @@ class LeituraDeboraVitoriaController extends Controller
     function create()
     {
         $sensor = Sensor::orderBy('nome')->get();
-        return view('LeituraDeboraVitoriaForm')->with(['sensor' => $sensor]);
-
         $mac = Mac::orderBy('nome')->get();
-        return view('LeituraDeboraVitoriaForm')->with(['mac' => $mac]);
+
+        return view('LeituraDeboraVitoriaForm')->with([
+            'sensor' => $sensor,
+            'mac' => $mac,
+        ]);
     }
 
 
@@ -140,9 +142,11 @@ class LeituraDeboraVitoriaController extends Controller
 
     function search(Request $request)
     {
-        if ($request->campo == 'nome') {
+        $campo = $request->campo;
+
+        if ($campo) {
             $leituradeboravitoria = LeituraDeboraVitoria::where(
-                'nome',
+                $campo,
                 'like',
                 '%' . $request->valor . '%'
             )->get();

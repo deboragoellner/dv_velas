@@ -45,7 +45,6 @@ class EstoqueController extends Controller
             ]
         );
 
-
         $dados = [
             'essencia' => $request->essencia,
             'cera' => $request->cera,
@@ -64,7 +63,6 @@ class EstoqueController extends Controller
             $imagem->storeAs($diretorio, $nome_arquivo, 'public');
             $dados['imagem'] = $diretorio . $nome_arquivo;
         }
-
 
         //dd( $request->nome);
         Estoque::create($dados);
@@ -170,12 +168,16 @@ class EstoqueController extends Controller
 
     function search(Request $request)
     {
-        if ($request->campo == 'nome') {
+        $campo = $request->campo;
+
+        if ($campo) {
+
             $estoque = Estoque::where(
-                'nome',
+                $campo,
                 'like',
                 '%' . $request->valor . '%'
             )->get();
+
         } else {
             $estoque = Estoque::all();
         }

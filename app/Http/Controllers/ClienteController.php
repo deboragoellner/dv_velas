@@ -118,9 +118,11 @@ class ClienteController extends Controller
 
     function search(Request $request)
     {
-        if ($request->campo == 'nome') {
+        $campo = $request->campo;
+
+        if ($campo) {
             $clientes = Cliente::where(
-                'nome',
+                $campo,
                 'like',
                 '%' . $request->valor . '%'
             )->get();

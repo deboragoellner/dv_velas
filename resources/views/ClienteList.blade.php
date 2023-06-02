@@ -2,40 +2,41 @@
 @section('conteudo')
 @section('tituloPagina', 'Listagem de Cliente')
     <body>
-        <div class="valores">
-            <style>
-                .valores {
-                    border: 1px solid gray;
-                    padding: 8px;
-                }
-                h1 {
-                    text-align: center;
-                    text-transform: uppercase;
-                    color: tan;
-                    font-size: 50px;
-                    font-family: Aboreto;
-                }
-            </style>
-            <h1>Clientes</h1>
-        </div>
-        <div class="container">
-            <form action="ClienteList.php" method="post">
-                <select name="campo">
-                    <option value="nome">Nome</option>
-                    <option value="email">Email</option>
-                    <option value="cpf">CPF</option>
-                </select>
-                <div class="row g-3">
-                    <div class="col-3">
-                        <input type="text" class="form-control" class="form-control"  placeholder="Pesquisar" name="valor"/>
-                    </div>
-                    <div class="col-3">
-                        <input type="submit" class="btn btn-outline-secondary" value="Buscar"/>
-                    </div>
+        <form action="{{ route('cliente.search') }}" method="post">
+            @csrf
+            <div class="valores">
+                <style>
+                    .valores {
+                        border: 1px solid gray;
+                        padding: 8px;
+                    }
+                    h1 {
+                        text-align: center;
+                        text-transform: uppercase;
+                        color: tan;
+                        font-size: 50px;
+                        font-family: Aboreto;
+                    }
+                </style>
+                <h1>Clientes</h1>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2">
+                    <select name="campo" class="form-select">
+                        <option value="nome">Nome</option>
+                        <option value="email">Email</option>
+                        <option value="cpf">CPF</option>
+                    </select>
                 </div>
-            </form>
-        </div>
-
+                <div class="col-4">
+                    <input type="text" class="form-control" placeholder="Pesquisar" name="valor" />
+                </div>
+                <div class="col-6">
+                    <input type="submit" class="btn btn-outline-secondary" value="Buscar"/>
+                </div>
+            </div>
+        </form>
         <div class="cadastra">
             <style>
                 .cadastra {
@@ -81,7 +82,6 @@
                     @foreach($clientes as $item)
                         <tr>
                             <td scope='row'>{{ $item->id}}</td>
-                            <td>{{$item->id}}</td>
                             <td>{{$item->nome}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->cpf}}</td>
@@ -100,6 +100,7 @@
                     @endforeach
                 </table>
             </div>
+            <button class="button button1"><a href="{{ url('dashboard') }}">Voltar</a></button>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     </body>

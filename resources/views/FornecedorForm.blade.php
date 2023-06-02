@@ -56,7 +56,7 @@
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group-mr-2" role="group" aria-label="First group">
                 <button type="submit" class="btn btn-outline-success">Salvar</button>
-                <button type="button" class="btn btn-outline-info"><a href="{{ url('dashboard') }}">Voltar</a></button>
+                <button type="button" class="btn btn-outline-info"><a href="{{ url('fornecedor') }}">Voltar</a></button>
             </div>
         </div>
     </form>

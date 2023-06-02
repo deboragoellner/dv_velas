@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('essencia',120);
             $table->string('cera',100);
             $table->string('pavio',100);
-            $table->string('imagem',150);
+            $table->string('imagem',150)->nullable();
             $table->timestamps();
         });
     }

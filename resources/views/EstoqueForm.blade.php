@@ -41,9 +41,9 @@
         }
     </style>
     <style> label{font-family: Aboreto;}</style>
-    <form action="{{$route}}" method= "POST">
+    <form action="{{$route}}" method= "POST" enctype="multipart/form-data">
         @csrf
-        @if (!empty($cliente->id))
+        @if (!empty($estoque->id))
             @method('PUT')
         @endif
         <input type="hidden" name="id"value="<?php echo !empty($estoque->id) ? $estoque->id: ""?>"/><br>
@@ -54,21 +54,18 @@
         <label>Pavio</label><br>
         <input type="text" name="pavio" class="form-control"  value="<?php echo !empty($estoque->pavio) ? $estoque->pavio: ""?>"/>
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <br><br>
         </div>
         @php
-        $nome_imagem = !empty($usuario->imagem) ? $usuario->imagem : 'sem_imagem.jpg';
+        $nome_imagem = !empty($estoque->imagem) ? $estoque->imagem : 'sem_imagem.png';
         @endphp
         <div class="col-6">
-            <br>
             <img class="img-thumbnail" src="/storage/{{ $nome_imagem }}" width="300px" />
-            <br><br>
             <input type="file" class="form-control" name="imagem" /><br>
         </div>
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group-mr-2" role="group" aria-label="First group">
             <button type="submit" class="btn btn-outline-success">Salvar</button>
-            <button type="button" class="btn btn-outline-info"><a href="{{ url('dashboard') }}">Voltar</a></button>
+            <button type="button" class="btn btn-outline-info"><a href="{{ url('estoque') }}">Voltar</a></button>
             </div>
         </div>
     </form>
