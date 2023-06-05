@@ -13,6 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('leituradeboravitoria', function (Blueprint $table) {
             $table->id();
             $table->date('data_leitura');
@@ -23,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::disableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();
 
     }
 

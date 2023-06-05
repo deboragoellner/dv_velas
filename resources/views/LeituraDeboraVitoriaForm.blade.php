@@ -48,22 +48,22 @@
         <input type="hidden" name="id"
         value="@if (!empty(old('id'))) {{ old('id') }} @elseif(!empty($leituradeboravitoria->id)) {{ $leituradeboravitoria->id }} @else {{ '' }} @endif" /><br>
         <label class="form-label">Data Leitura</label>
-        <input type="text" class="form-control" name="data_leitura"value="@if (!empty(old('data_leitura'))) {{ old('data_leitura') }} @elseif(!empty($leituradeboravitoria->data_leitura)) {{ $leituradeboravitoria->data_leitura }} @else {{ '' }} @endif" /><br>
+        <input type="text" class="form-control" placeholder="aaaa/mm/dd" name="data_leitura"value="@if (!empty(old('data_leitura'))) {{ old('data_leitura') }} @elseif(!empty($leituradeboravitoria->data_leitura)) {{ $leituradeboravitoria->data_leitura }} @else {{ '' }} @endif" /><br>
         <label class="form-label">Hora Leitura</label>
         <input type="text" class="form-control" name="hora_leitura"value="@if (!empty(old('hora_leitura'))) {{ old('hora_leitura') }} @elseif(!empty($leituradeboravitoria->hora_leitura)) {{ $leituradeboravitoria->hora_leitura }} @else {{ '' }} @endif" /><br>
         <label class="form-label">Valor sensor</label>
         <input type="text" class="form-control" name="valor_sensor"value="@if (!empty(old('valor_sensor'))) {{ old('valor_sensor') }} @elseif(!empty($leituradeboravitoria->valor_sensor)) {{ $leituradeboravitoria->valor_sensor }} @else {{ '' }} @endif" />
         <div class="col-3">
             <label class="form-label">Sensor</label><br>
-            <select name="sensor" class="form-select">
+            <select name="sensor_id" class="form-select">
                 @foreach ($sensor as $item)
-                        <option value="{{ $item->id }}">{{ $item->nome }}</option>
+                    <option value="{{ $item->id }}">{{ $item->nome }}</option>
                 @endforeach
             </select>
         </div>
         <div class="col-3">
             <label class="form-label">Mac</label><br>
-            <select name="mac" class="form-select">
+            <select name="mac_id" class="form-select">
                 @foreach ($mac as $item)
                     <option value="{{ $item->id }}">{{ $item->nome }}</option>
                 @endforeach

@@ -24,8 +24,8 @@
     <div class="row">
         <div class="col-2">
             <select name="campo" class="form-select">
-                <option value="dataleitura">Data Leitura</option>
-                <option value="horaleitura">Hora Leitura</option>
+                <option value="data_leitura">Data Leitura</option>
+                <option value="hora_leitura">Hora Leitura</option>
                 <option value="valor_sensor">Valor sensor</option>
             </select>
         </div>
@@ -86,7 +86,7 @@
                     <td>{{$item->hora_leitura}}</td>
                     <td>{{$item->valor_sensor}}</td>
                     <td>{{$item->sensor_id}}</td>
-                    <td>{{$item->mac_id}}</td>
+                    <td>{{$item->mac->nome}}</td>
                     <td><a href="{{ action('App\Http\Controllers\LeituraDeboraVitoriaController@edit', $item->id) }}"><i
                         class='fa-solid fa-pencil' style='color:blue;'></i></a></td>
                     <td>

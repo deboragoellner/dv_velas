@@ -112,15 +112,17 @@ class LeituraDeboraVitoriaController extends Controller
             ]
         );
 
+        $dados = [
+            'data_leitura' => $request->data_leitura,
+            'hora_leitura' => $request->hora_leitura,
+            'valor_sensor' => $request->valor_sensor,
+            'sensor_id' => $request->sensor_id,
+            'mac_id' => $request->mac_id,
+        ];
+
         LeituraDeboraVitoria::updateOrCreate(
             ['id' => $request->id],
-            [
-                'data_leitura' => $request->data_leitura,
-                'hora_leitura' => $request->hora_leitura,
-                'valor_sensor' => $request->valor_sensor,
-                'sensor_id' => $request->sensor_id,
-                'mac_id' => $request->mac_id,
-            ]
+            $dados
         );
 
         return \redirect()->action(
